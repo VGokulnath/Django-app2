@@ -1,0 +1,50 @@
+{% extends 'food/base.html' %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-lg border-0 rounded">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">Login</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <!-- Username Field -->
+                        <div class="form-group mb-3">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="{{ form.username.value|default:'' }}" required autofocus>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group mb-3">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Login</button>
+</form>
+
+
+
+
+
+
+
